@@ -1,6 +1,7 @@
 package tp;
 import java.util.*;
 
+//Clase Administradora
 
 public class Oms {
 
