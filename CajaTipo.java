@@ -75,7 +75,7 @@ public class CajaTipo {
 		{
 			remedio = enuRem.nextElement();
 			stock = remedio.getStock();
-			if(stock==0)
+			if(stock<remediosCaja.get(remedio))
 				val= true;
 		}
 		return val;

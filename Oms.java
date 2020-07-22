@@ -1,7 +1,6 @@
 package tp;
 import java.util.*;
 
-//Clase Administradora
 
 public class Oms {
 
@@ -161,10 +160,10 @@ public class Oms {
 				r.agregarStock(cant); // Sumamos al stock
 				
 				System.out.println("--------------------------------------------------------------");
-				System.out.println("Se ha actualizado el Medicamento/Vacuna con éxito.");
+				System.out.println("Se ha actualizado el Medicamento/Vacuna con exito.");
 				System.out.println("- ID: "+id);
-				System.out.println("- Descripción: "+ r.darDescripcion());
-				System.out.println("- Stock: "+ cant);
+				System.out.println("- Descripcion: "+ r.darDescripcion());
+				System.out.println("- Stock agregado actualizado: "+ cant);
 				System.out.println("--------------------------------------------------------------\n");
 			}
 			else
@@ -189,9 +188,9 @@ public class Oms {
 					int dosis = entrada.nextInt();
 					r = new Vacuna(id, descripcion, cant, valor, dosis);
 					System.out.println("--------------------------------------------------------------");
-					System.out.println("Se ha registrado la Vacuna con éxito.");
+					System.out.println("Se ha registrado la Vacuna con exito.");
 					System.out.println("- ID: "+id);
-					System.out.println("- Descripción: "+ descripcion);
+					System.out.println("- Descripcion: "+ descripcion);
 					System.out.println("- Stock: "+ cant);
 					System.out.println("- Valor: U$D "+valor);
 					System.out.println("- Dosis: "+dosis+" ml");
@@ -201,9 +200,9 @@ public class Oms {
 				{
 					r = new Medicamento(id, descripcion, cant);
 					System.out.println("--------------------------------------------------------------");
-					System.out.println("Se ha registrado el Medicamento con éxito.");
+					System.out.println("Se ha registrado el Medicamento con exito.");
 					System.out.println("- ID: "+id);
-					System.out.println("- Descripción: "+ descripcion);
+					System.out.println("- Descripcion: "+ descripcion);
 					System.out.println("- Stock: "+ cant);
 					System.out.println("--------------------------------------------------------------\n");
 				}
@@ -261,7 +260,7 @@ public class Oms {
 						System.out.println("El remedio ingresado no existe.");
 					else
 					{
-						if(remediosCaja.contains(r))
+						if(remediosCaja.containsKey(r))
 						{
 							System.out.println("El remedio ya se encuentra en la caja, ingrese la cantidad que desea adicionarle: ");
 							ctdR = entrada.nextInt();
@@ -311,9 +310,9 @@ public class Oms {
 					cajasTipo.add(c);
 					
 					System.out.println("--------------------------------------------------------------\n");
-					System.out.println("La enfermedad se ha registrado con éxito.");
+					System.out.println("La enfermedad se ha registrado con exito.");
 					System.out.println("- ID: "+ idE);
-					System.out.println("- Descripción: " + nombre);
+					System.out.println("- Descripcion: " + nombre);
 					System.out.println("- Caja Tipo: ");
 					c.listarRemedios();
 					System.out.println("--------------------------------------------------------------\n");
@@ -375,7 +374,7 @@ public class Oms {
 						pedidos.add(ped);
 
 						System.out.println("\n--------------------------------------------------------------");
-						System.out.println("Pedido registrado con éxito.");
+						System.out.println("Pedido registrado con exito.");
 						System.out.println("- ID: "+ idPedido);
 						System.out.println("- Pais: "+p.darNombre());
 						System.out.println("- Enfermedad: " + enf.darNombre());
@@ -439,7 +438,7 @@ public class Oms {
 						
 						valor += Envio.darCostoEnvio();
 						
-						System.out.println("El costo definido fue de: U$S "+ valor);
+						
 						
 						int idE = envios.size()+1;
 						
@@ -448,11 +447,11 @@ public class Oms {
 						if(i == cajasSolicitadas)
 						{
 							System.out.println("\n--------------------------------------------------------------");
-							System.out.println("Envío registrado con éxito.");
-							System.out.println("- ID Envío: "+idE);
+							System.out.println("Envio registrado con exito.");
+							System.out.println("- ID Enviado: "+idE);
 							System.out.println("- ID Pedido correspondiente: "+idPed);
-							System.out.println("- Costo total: "+valor);
-							System.out.println("- El envío se ha generado por el total de cajas del pedido.");
+							System.out.println("- Costo total(USD): "+valor);
+							System.out.println("- El envio se ha generado por el total de cajas del pedido.");
 							System.out.println("--------------------------------------------------------------\n");
 							envios.add(e);
 							p.agregarEnvio(e);
@@ -463,11 +462,11 @@ public class Oms {
 							{
 								
 								System.out.println("\n--------------------------------------------------------------");
-								System.out.println("Envío registrado con éxito.");
+								System.out.println("Envio registrado con exito.");
 								System.out.println("- ID Envío: "+idE);
 								System.out.println("- ID Pedido correspondiente: "+idPed);
 								System.out.println("- Costo total: "+valor);
-								System.out.println("- El envío se ha generado de forma parcial, no pudieron armarse " +i+ " cajas.");
+								System.out.println("- El envio se ha generado de forma parcial, no pudieron armarse " +i+ " cajas.");
 								System.out.println("--------------------------------------------------------------\n");
 								envios.add(e);
 								p.agregarEnvio(e);
@@ -475,7 +474,7 @@ public class Oms {
 							else
 							{
 								System.out.println("\n--------------------------------------------------------------");
-								System.out.println("Envío no registrado.");
+								System.out.println("Envio no registrado.");
 								System.out.println("- ID Pedido correspondiente: "+idPed);
 								System.out.println("- No hay stock suficiente para poder armar las cajas.");
 								System.out.println("--------------------------------------------------------------\n");
@@ -546,7 +545,7 @@ public class Oms {
 			}
 			else
 			{
-				System.out.println("Ingrese la contrase�a: (alfabetica)");
+				System.out.println("Ingrese la contrase�a: (alfabetica)");
 				String clave = entrada.next();
 				System.out.println("Ingrese Nombre: ");
 				String denominacion = entrada.next();
@@ -889,7 +888,7 @@ public class Oms {
     		  for(Enfermedad enf: enfermedades)
         		{
         		    if(enf.noTenesStock())
-        		    	System.out.println("La caja-tipo " + enf.getCajaTipo().getId() +" no puede armarse por falta de stock.");
+        		    	System.out.println("La caja-tipo " + enf.getCajaTipo().getId() +" no puede armarse por falta de stock.");      		    		
         		}
     		  System.out.println("--------------------------------------------------------------\n");
     	  }
@@ -946,7 +945,8 @@ public class Oms {
 
     			
     		}
-    		//13) Listar Envios.
+    		
+    		//15) Listar Envios.
     		public void listarEnvios()
     		{
     			Scanner entrada = new Scanner(System.in);
@@ -1002,7 +1002,7 @@ public class Oms {
     					
     				} while (usuario == null);
         		}
-        		System.out.println("Ingrese contrase�a: ");
+        		System.out.println("Ingrese contrase�a: ");
         		clave = entrada.next();
         		
         		usuario = this.buscarPass(clave);
@@ -1045,7 +1045,7 @@ public class Oms {
     				System.out.println("\n---------------------------------------------------------------------------------------------");
     				System.out.println("---- REPORTES ----");
     				System.out.println("8) Informar cual seria el costo total de un envio ya armado dado su codigo");
-    				System.out.println("9) Informar cuantos envios se le han hecho en los ultimos 3 años, dado el nombre de un pais.");
+    				System.out.println("9) Informar cuantos envios se le han hecho en los ultimos 3 a�os, dado el nombre de un pais.");
     				System.out.println("10) Informar Enfermedades con vacuna.");
     				System.out.println("11) Informar el Stock existente de todos remedios.");
     				System.out.println("12) Informar los codigo de las caja-tipo que no pueden armarse por falta de stock. ");
@@ -1144,48 +1144,48 @@ public class Oms {
     			{
     				System.out.println("\n---------------------------------------------------------------------------------------------");
     				System.out.println("---- REPORTES ----");
-    				System.out.println("8) Informar cual seria el costo total de un envio ya armado dado su codigo");
-    				System.out.println("9) Informar cuantos envios se le han hecho en los ultimos 3 años, dado el nombre de un pais.");
-    				System.out.println("10) Informar Enfermedades con vacuna.");
-    				System.out.println("11) Informar el Stock existente de todos remedios.");
-    				System.out.println("12) Informar los codigo de las caja-tipo que no pueden armarse por falta de stock");
-    				System.out.println("13) Listar enfermedades y sus caja tipo");
-    				System.out.println("14) Listar pedidos");
-    				System.out.println("15) Listar envios");
+    				System.out.println("1) Informar cual seria el costo total de un envio ya armado dado su codigo");
+    				System.out.println("2) Informar cuantos envios se le han hecho en los ultimos 3 años, dado el nombre de un pais.");
+    				System.out.println("3) Informar Enfermedades con vacuna.");
+    				System.out.println("4) Informar el Stock existente de todos remedios.");
+    				System.out.println("5) Informar los codigo de las caja-tipo que no pueden armarse por falta de stock");
+    				System.out.println("6) Listar enfermedades y sus caja tipo");
+    				System.out.println("7) Listar pedidos");
+    				System.out.println("8) Listar envios");
     				System.out.println("0) Salir");
     				System.out.print("\nIngrese opc:");
     				opc = entrada.nextByte();
     				switch(opc)
     				{
-	    				case 8:
+	    				case 1:
 	    				{
 	    					this.informaCostoTotal();
 	    				}break;	    				
-	    				case 9:
+	    				case 2:
 	    				{
 	    					this.informarEnviosTresAnios();
 	    				}break;	    				
-	    				case 10:
+	    				case 3:
 	    				{
 	    					this.informarEnfermedadesConVacuna();
 	    				}break;
-	    				case 11:
+	    				case 4:
 	    				{
 	    					this.informarStockDeRemedios();
 	    				}break;
-	    				case 12:
+	    				case 5:
 	    				{
 	    					this.informarCajaSinStock();
 	    				}break;
-	    				case 13:
+	    				case 6:
 	    				{
 	    					this.listarEnfermedadesYCajasTipo();
 	    				}break;
-	    				case 14:
+	    				case 7:
 	    				{
 	    					this.listarPedidos();
 	    				}break;
-	    				case 15:
+	    				case 8:
 	    				{
 	    					this.listarEnvios();
 	    				}break;
